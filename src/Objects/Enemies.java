@@ -8,7 +8,7 @@ public class Enemies
 {
 	Image image;
 	private float enemyX, enemyY;
-	private double speed = 0.1;
+	private double speed = 0.050;
 	
 	public Enemies(int x, int y)
 	{

@@ -10,7 +10,7 @@ import ControlClasses.ShootingControl;
 public class Play extends BasicGameState
 {
 	public static float xcharachter = 430, ycharachter = 500;
-	public static int level = 1;
+	public static int level = 1, score = 0;
 	
 	public Play(int state)
 	{
@@ -30,6 +30,9 @@ public class Play extends BasicGameState
 		
 		// drawing the character
 		g.drawImage(Images.character, xcharachter, ycharachter, null);
+		
+		// draw the score
+		g.drawString("Score: " + score, Game.width-100, 20);
 		
 		// drawing the enemies
 		EnemyControl.beginLevel(g);

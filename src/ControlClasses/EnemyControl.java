@@ -7,25 +7,44 @@ import mainGamePackage.Play;
 import org.newdawn.slick.*;
 
 import Objects.Enemies;
+import StaticClasses.Levels;
 
 public class EnemyControl
 {
-	private static ArrayList<Enemies> enemyArray = new ArrayList<Enemies>();
+	public static ArrayList<Enemies> enemyArray = new ArrayList<Enemies>();
+	private static ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
 	private static Random random = new Random();
-	private static boolean added = false;
+	public static boolean sratedLevel = false;
+	private static int spaceBetweenEnemies = 35;
 	
 	public static void beginLevel(Graphics g)
 	{
 		// creating the enemies for level 1
-		if(Play.level == 1)
+		if(Play.level == 1 && sratedLevel == false)
 		{
-			// check for not making these enemies for infinite times
-			if(added == false)
+			Levels.Level1();
+			sratedLevel = true;
+		}
+	}
+	
+	public static void createPackOfEnemies(int rows, int cols, int startXPos)
+	{
+		int startYPos = -200;
+		int tempStartXPos = startXPos;
+		
+		// creating a matrix of enemies
+		for(int r = 0; r < rows; r++)
+		{
+			// creating the cols
+			for(int c = 0; c < cols; c++)
 			{
-				for(int i = 0; i < 5; i++)
-					EnemyControl.addEnemy(new Enemies(random.nextInt(900), -100));
+				EnemyControl.addEnemy(new Enemies(tempStartXPos, startYPos));
+				tempStartXPos += spaceBetweenEnemies;
 			}
-			added = true;
+			
+			// creating the rows
+			tempStartXPos = startXPos;
+			startYPos += spaceBetweenEnemies;
 		}
 	}
 	
@@ -48,5 +67,10 @@ public class EnemyControl
 	public static void addEnemy(Enemies e)
 	{
 		enemyArray.add(e);
+	}
+	
+	public static void removeEnemy(int index)
+	{
+		enemyArray.remove(index);
 	}
 }

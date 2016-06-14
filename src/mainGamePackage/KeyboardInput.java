@@ -18,7 +18,7 @@ public class KeyboardInput
 		// going right
 		if(input.isKeyDown(Input.KEY_RIGHT))
 		{
-			if(Play.xcharachter < 800)
+			if(Play.xcharachter < Game.width-50)
 				Play.xcharachter += delta * .1f + speed;
 		}
 		// going left

@@ -7,6 +7,7 @@ public class Game extends StateBasedGame
 {
 	public static final String gameName = "Space Game";
 	public static final int menu = 0, play = 1, thanks = 2;
+	public static int width = 850, height = 600;
 	
 	public Game(String gamename)
 	{
@@ -33,7 +34,7 @@ public class Game extends StateBasedGame
 		
 		try {
 			appgc = new AppGameContainer(new Game(gameName));
-			appgc.setDisplayMode(900, 600, false);
+			appgc.setDisplayMode(width, height, false);
 			//appgc.setShowFPS(false);
 			appgc.start();
 		} catch (SlickException e) {
