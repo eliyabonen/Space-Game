@@ -1,0 +1,8 @@
+Version 1.0:
+First release of the game
+
+TO DO:
+Version 2.0:
+add the option the move up and down
+add the option to play with two players
+add more leves
