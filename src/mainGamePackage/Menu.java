@@ -3,8 +3,9 @@ package mainGamePackage;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
+import InputPackages.MouseInput;
 import StaticClasses.Images;
-import StaticClasses.Sound;
+import StaticClasses.Sounds;
 
 import java.awt.Font;
 
@@ -14,7 +15,7 @@ public class Menu extends BasicGameState
 	
 	public static Color pColor = Color.yellow, mColor = Color.yellow, tColor = Color.yellow, qColor = Color.yellow;
 	
-	public Menu(int state)
+	public Menu()
 	{
 		
 	}
@@ -35,14 +36,15 @@ public class Menu extends BasicGameState
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		g.setBackground(Color.black);
+		// drawing the background
+		g.drawImage(Images.background, 0, 0, null);
 		
 		title.drawString(330, 50, "Space Game", Color.pink);
 		
 		item.drawString(375, 180, "PLAY", pColor); // width 70, height 30
 		//g.drawRect(375, 180, 70, 30);
 		
-		item.drawString(290, 250, "MUSIC STATUS: " + (Sound.musicOn ? "ON" : "OFF"), mColor);
+		item.drawString(290, 250, "MUSIC STATUS: " + (Sounds.musicOn ? "ON" : "OFF"), mColor);
 		
 		
 		item.drawString(350, 320, "Credits", tColor);

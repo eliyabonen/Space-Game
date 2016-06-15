@@ -7,20 +7,20 @@ import StaticClasses.Images;
 import StaticClasses.Sounds;
 import ControlClasses.EnemyControl;
 import ControlClasses.ShootingControl;
+import InputPackages.KeyboardInput;
 
 public class Play extends BasicGameState
 {
 	public static float xcharachter = 430, ycharachter = 500;
 	public static int level = 1, score = 0, life = 3;
 	
-	public Play(int state)
+	public Play()
 	{
 		
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
-		Images.loadPics();
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException

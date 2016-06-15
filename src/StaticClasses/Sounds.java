@@ -7,6 +7,7 @@ import sun.audio.AudioStream;
 public class Sounds
 {
 	public static AudioStream audioStream;
+	public static boolean musicOn = false;
 	
 	public static void playSound(String sound)
 	{

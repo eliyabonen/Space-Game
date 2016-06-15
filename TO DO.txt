@@ -1,2 +1,2 @@
-add game over
+upgrade game over
 add more levels(little pause between levels, and a big string in the string that says i passed a level)
