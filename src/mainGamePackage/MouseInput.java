@@ -21,7 +21,10 @@ public class MouseInput
 				if(sbg.getCurrentStateID() == 0) // start menu
 				{
 					if(xpos >= 375 && xpos <= 445 && ypos >= 180 && ypos <= 210) // play
+					{
+						Play.resetAll();
 						sbg.enterState(1);
+					}
 					if(xpos >= 340 && xpos <= 480 && ypos >= 320 && ypos <= 350) // credits
 						sbg.enterState(2);
 					if(xpos >= 375 && xpos <= 445 && ypos >= 520 && ypos <= 550) // quit

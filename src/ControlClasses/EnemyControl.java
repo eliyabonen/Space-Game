@@ -1,10 +1,12 @@
 package ControlClasses;
 
+import java.awt.Rectangle;
 import java.util.*;
 
 import mainGamePackage.Play;
 
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.StateBasedGame;
 
 import Objects.Enemies;
 import StaticClasses.Levels;
@@ -48,7 +50,7 @@ public class EnemyControl
 		}
 	}
 	
-	public static void render(Graphics g)
+	public static void render(Graphics g, StateBasedGame sbg)
 	{
 		// looping through all the enemies and drawing&moving them
 		for(int i = 0; i < enemyArray.size(); i++)
@@ -56,10 +58,27 @@ public class EnemyControl
 			enemyArray.get(i).render(g);
 			enemyArray.get(i).move();
 			
+			// check if enemy hit ship
+			if((new Rectangle((int)enemyArray.get(i).getX()+20, (int)enemyArray.get(i).getY()+20, 25, 25)).intersects(new Rectangle((int)Play.xcharachter, (int)Play.ycharachter, 64, 64)))
+			{
+				enemyArray.remove(i);
+				Play.life--;
+				
+				//if(Play.life == 0)
+				//sbg.enterState(GameOver.getID());
+				
+				continue;
+			}
+			
+			
 			// killing all the enemies that felt down the screen
 			if(enemyArray.get(i).getY() > 600)
 			{
 				enemyArray.remove(i);
+				Play.life--;
+				
+				//if(Play.life == 0)
+				//sbg.enterState(GameOver.getID());
 			}
 		}
 	}

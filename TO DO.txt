@@ -1,3 +1,2 @@
-add ship collision detection
-add life(3 lifes maybe)
-when enemy leaving the screen it takes life
+add game over
+add more levels(little pause between levels, and a big string in the string that says i passed a level)

@@ -4,6 +4,7 @@ import org.newdawn.slick.*;
 
 import ControlClasses.ShootingControl;
 import Objects.Bullet;
+import StaticClasses.Sounds;
 
 public class KeyboardInput
 {
@@ -37,6 +38,9 @@ public class KeyboardInput
 		}
 		if(input.isKeyPressed(Input.KEY_SPACE))
 		{
+			// play the shooting sound
+			Sounds.playSound("sounds//shotEffect.wav");
+			
 			// every time the space key is pressed, we create a new bullet and shooting it
 			ShootingControl.addBullet(new Bullet(Play.xcharachter+plusSpot, Play.ycharachter));
 		}
