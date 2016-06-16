@@ -32,6 +32,7 @@ public class Menu extends BasicGameState
 		
 		// initialize the images
 		Images.loadPics();
+		Sounds.loadSounds();
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException

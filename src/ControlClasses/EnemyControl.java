@@ -58,15 +58,22 @@ public class EnemyControl
 			enemyArray.get(i).move();
 			
 			// check if enemy hit ship
-			if((new Rectangle((int)enemyArray.get(i).getX()+20, (int)enemyArray.get(i).getY()+20, 25, 25)).intersects(new Rectangle((int)Play.xcharachter, (int)Play.ycharachter, 64, 64)))
+			if((new Rectangle((int)enemyArray.get(i).getX()+20, (int)enemyArray.get(i).getY()+20, 25, 25)).intersects(new Rectangle((int)Play.xcharachter, (int)Play.ycharachter, 45, 45)))
 			{
 				enemyArray.remove(i);
 				Play.life--;
 				
 				if(Play.life == 0)
 				{
-					sbg.enterState(3); // game over
-					Sounds.playSound("sounds//gameOver.wav");
+					// entering to game over
+					sbg.enterState(3);
+					
+					// stopping the game song
+					Sounds.stopSound(Sounds.playtimeMusic);
+
+					// playing the game over sound
+					Sounds.loadSpecificSound(Sounds.gameOverID);
+					Sounds.playSound(Sounds.gameOver);
 				}
 				
 				continue;
@@ -81,8 +88,15 @@ public class EnemyControl
 				
 				if(Play.life == 0)
 				{
-					sbg.enterState(3); // game over
-					Sounds.playSound("sounds//gameOver.wav");
+					// entering to game over
+					sbg.enterState(3);
+					
+					// stopping the game song
+					Sounds.stopSound(Sounds.playtimeMusic);
+
+					// playing the game over sound
+					Sounds.loadSpecificSound(Sounds.gameOverID);
+					Sounds.playSound(Sounds.gameOver);
 				}
 			}
 		}

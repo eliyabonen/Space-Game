@@ -30,6 +30,7 @@ public class Play extends BasicGameState
 		g.setColor(Color.white);
 		
 		// drawing the character
+		//g.drawRect(xcharachter, ycharachter, 45, 45);
 		g.drawImage(Images.character, xcharachter, ycharachter, null);
 		
 		// drawing the enemies
@@ -53,11 +54,21 @@ public class Play extends BasicGameState
 	
 	public static void resetAll()
 	{
+		// playtime utilities
 		score = 0;
 		life = 3;
 		level = 1;
+		xcharachter = 430;
+		ycharachter = 500;
+		
+		// clear the enemies and bullets off the screen
 		EnemyControl.sratedLevel = false;
 		EnemyControl.enemyArray.clear();
+		ShootingControl.bulletArray.clear();
+		
+		// starting the sound all over again
+		Sounds.loadSpecificSound(Sounds.playtimeMusicID);
+		Sounds.playSound(Sounds.playtimeMusic);
 	}
 	
 	public int getID()

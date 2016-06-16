@@ -1,4 +1,4 @@
+add pause button to the playtime(which will take me to a new scene and let me choose options: resume, main menu, quit)
 add the score to the game over
+add database & personal stats to the game
 add more levels(little pause between levels, and a big string in the string that says i passed a level)
-add database to the game
-add personal stats to the game

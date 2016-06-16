@@ -42,7 +42,8 @@ public class KeyboardInput
 		if(input.isKeyPressed(Input.KEY_SPACE))
 		{
 			// play the shooting sound
-			Sounds.playSound("sounds//shotEffect.wav");
+			Sounds.loadSpecificSound(Sounds.shotEffectID);
+			Sounds.playSound(Sounds.shotEffect);
 			
 			// every time the space key is pressed, we create a new bullet and shooting it
 			ShootingControl.addBullet(new Bullet(Play.xcharachter+plusSpot, Play.ycharachter));

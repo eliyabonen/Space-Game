@@ -13,7 +13,7 @@ import StaticClasses.Levels;
 
 public class ShootingControl
 {
-	private static ArrayList<Bullet> bulletArray = new ArrayList<Bullet>();
+	public static ArrayList<Bullet> bulletArray = new ArrayList<Bullet>();
 	private static int index = -1;
 	
 	public static void render(Graphics g)
