@@ -56,7 +56,7 @@ public class Menu extends BasicGameState
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		MouseInput.Scan(sbg);
+		MouseInput.Scan(sbg, gc);
 	}
 	
 	public int getID()

@@ -11,9 +11,9 @@ import StaticClasses.Images;
 public class Credits extends BasicGameState
 {
 	private TrueTypeFont font, back;
-	public static Color fcolor = Color.blue;
+	public static Color fcolor = Color.pink;
 	public static Color pcolor = new Color(34, 0, 255);
-	public static Color bcolor = Color.blue;
+	public static Color bcolor = Color.yellow;
 	
 	public Credits()
 	{
@@ -22,7 +22,7 @@ public class Credits extends BasicGameState
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
-		Font itemsFont = new Font(Font.MONOSPACED, Font.ITALIC + Font.BOLD, 23);
+		Font itemsFont = new Font(Font.MONOSPACED, Font.ITALIC + Font.BOLD, 30);
 		font = new TrueTypeFont(itemsFont, true);
 		
 		Font backFont = new Font("Arial", Font.ITALIC + Font.BOLD, 40);
@@ -34,13 +34,8 @@ public class Credits extends BasicGameState
 		// drawing the background
 		g.drawImage(Images.background, 0, 0, null);
 		
-		font.drawString(300, 100, "The Fruit Catcher", fcolor);
-		font.drawString(190, 140, "This game created by koko the cute", fcolor);
-		font.drawString(350, 180, "Thanks To:", fcolor);
-		font.drawString(310, 240, "itay - nothing", pcolor);
-		font.drawString(280, 280, "internet - the idea", pcolor);
-		font.drawString(250, 320, "koko - creating the game", pcolor);
-		font.drawString(210, 400, "and all the cutes in the world", pcolor);
+		font.drawString(330, 220, "Space Game", fcolor);
+		font.drawString(170, 260, "Created by Eliya Bonen [2016]", fcolor);
 		
 		back.drawString(370, 470, "Back", bcolor);
 		//g.drawRect(370, 470, 105, 45);
@@ -48,7 +43,7 @@ public class Credits extends BasicGameState
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		MouseInput.Scan(sbg);
+		MouseInput.Scan(sbg, gc);
 	}
 	
 	public int getID()

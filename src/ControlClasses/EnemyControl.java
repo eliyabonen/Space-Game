@@ -10,12 +10,11 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import Objects.Enemies;
 import StaticClasses.Levels;
+import StaticClasses.Sounds;
 
 public class EnemyControl
 {
 	public static ArrayList<Enemies> enemyArray = new ArrayList<Enemies>();
-	private static ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
-	private static Random random = new Random();
 	public static boolean sratedLevel = false;
 	private static int spaceBetweenEnemies = 35;
 	
@@ -64,8 +63,11 @@ public class EnemyControl
 				enemyArray.remove(i);
 				Play.life--;
 				
-				//if(Play.life == 0)
-				//sbg.enterState(GameOver.getID());
+				if(Play.life == 0)
+				{
+					sbg.enterState(3); // game over
+					Sounds.playSound("sounds//gameOver.wav");
+				}
 				
 				continue;
 			}
@@ -77,8 +79,11 @@ public class EnemyControl
 				enemyArray.remove(i);
 				Play.life--;
 				
-				//if(Play.life == 0)
-				//sbg.enterState(GameOver.getID());
+				if(Play.life == 0)
+				{
+					sbg.enterState(3); // game over
+					Sounds.playSound("sounds//gameOver.wav");
+				}
 			}
 		}
 	}

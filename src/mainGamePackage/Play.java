@@ -56,6 +56,8 @@ public class Play extends BasicGameState
 		score = 0;
 		life = 3;
 		level = 1;
+		EnemyControl.sratedLevel = false;
+		EnemyControl.enemyArray.clear();
 	}
 	
 	public int getID()

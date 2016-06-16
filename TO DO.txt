@@ -1,2 +1,4 @@
-upgrade game over
+add the score to the game over
 add more levels(little pause between levels, and a big string in the string that says i passed a level)
+add database to the game
+add personal stats to the game
