@@ -18,19 +18,9 @@ public class EnemyControl
 	public static boolean sratedLevel = false;
 	private static int spaceBetweenEnemies = 35;
 	
-	public static void beginLevel(Graphics g)
+	public static void createPackOfEnemies(int rows, int cols, int startXPos, int startYPos)
 	{
-		// creating the enemies for level 1
-		if(Play.level == 1 && sratedLevel == false)
-		{
-			Levels.Level1();
-			sratedLevel = true;
-		}
-	}
-	
-	public static void createPackOfEnemies(int rows, int cols, int startXPos)
-	{
-		int startYPos = -200;
+		int tempstartYPos = startYPos;
 		int tempStartXPos = startXPos;
 		
 		// creating a matrix of enemies
@@ -39,13 +29,13 @@ public class EnemyControl
 			// creating the cols
 			for(int c = 0; c < cols; c++)
 			{
-				EnemyControl.addEnemy(new Enemies(tempStartXPos, startYPos));
+				EnemyControl.addEnemy(new Enemies(tempStartXPos, tempstartYPos));
 				tempStartXPos += spaceBetweenEnemies;
 			}
 			
 			// creating the rows
 			tempStartXPos = startXPos;
-			startYPos += spaceBetweenEnemies;
+			tempstartYPos += spaceBetweenEnemies;
 		}
 	}
 	
@@ -60,7 +50,7 @@ public class EnemyControl
 			// check if enemy hit ship
 			if((new Rectangle((int)enemyArray.get(i).getX()+20, (int)enemyArray.get(i).getY()+20, 25, 25)).intersects(new Rectangle((int)Play.xcharachter, (int)Play.ycharachter, 45, 45)))
 			{
-				enemyArray.remove(i);
+				removeEnemy(i);
 				Play.life--;
 				
 				if(Play.life == 0)
@@ -83,7 +73,7 @@ public class EnemyControl
 			// killing all the enemies that felt down the screen
 			if(enemyArray.get(i).getY() > 600)
 			{
-				enemyArray.remove(i);
+				removeEnemy(i);
 				Play.life--;
 				
 				if(Play.life == 0)
@@ -109,6 +99,10 @@ public class EnemyControl
 	
 	public static void removeEnemy(int index)
 	{
+		// removing the enemy
 		enemyArray.remove(index);
+		
+		// checking if he finished the level
+		Levels.checkLevelUp();
 	}
 }

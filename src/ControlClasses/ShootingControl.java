@@ -26,6 +26,7 @@ public class ShootingControl
 			
 			// checking if the bullet hit an enemy(return the index of the enemy if hitted, return -1 if not hit)
 			index = bulletHitEnemy(i);
+			
 			// check if actually hitted
 			if(index != -1)
 			{
@@ -33,11 +34,8 @@ public class ShootingControl
 				bulletArray.remove(i);
 				EnemyControl.removeEnemy(index);
 				
-				// adding to the score
-				
+				// increasing the score
 				Play.score++;
-				
-				Levels.Level1();
 				
 				// there must be a continue here because of the bullets check right after(maybe i deleted this element already)
 				continue;

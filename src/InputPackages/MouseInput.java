@@ -10,6 +10,9 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
+import StaticClasses.Levels;
+import ControlClasses.EnemyControl;
+
 public class MouseInput
 {
 	public static int xpos, ypos;
@@ -27,6 +30,7 @@ public class MouseInput
 				if(xpos >= 375 && xpos <= 445 && ypos >= 180 && ypos <= 210) // play
 				{
 					Play.resetAll();
+					Levels.beginLevels();
 					sbg.enterState(1);
 				}
 				if(xpos >= 340 && xpos <= 480 && ypos >= 320 && ypos <= 350) // credits

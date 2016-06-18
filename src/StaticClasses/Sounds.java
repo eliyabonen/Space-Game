@@ -8,8 +8,8 @@ import sun.audio.AudioStream;
 public class Sounds
 {
 	public static boolean musicOn = false;
-	public static AudioStream playtimeMusic, gameOver, shotEffect;
-	public static int playtimeMusicID = 1, gameOverID = 2, shotEffectID = 3;
+	public static AudioStream playtimeMusic, gameOver, shotEffect, levelUPEffect;
+	public static int playtimeMusicID = 1, gameOverID = 2, shotEffectID = 3, levelup = 4;
 	
 	public static void loadSounds()
 	{
@@ -17,6 +17,7 @@ public class Sounds
 			playtimeMusic = new AudioStream(new FileInputStream("sounds//playtimeMusic.wav"));
 			gameOver = new AudioStream(new FileInputStream("sounds//gameOver.wav"));
 			shotEffect = new AudioStream(new FileInputStream("sounds//shotEffect.wav"));
+			levelUPEffect = new AudioStream(new FileInputStream("sounds//levelup.wav"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,6 +39,9 @@ public class Sounds
 			
 			else if(soundID == shotEffectID)
 				shotEffect = new AudioStream(new FileInputStream("sounds//shotEffect.wav"));
+			
+			else if(soundID == levelup)
+				levelUPEffect = new AudioStream(new FileInputStream("sounds//levelup.wav"));
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

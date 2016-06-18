@@ -4,6 +4,7 @@ import mainGamePackage.Game;
 import mainGamePackage.Play;
 
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.StateBasedGame;
 
 import ControlClasses.ShootingControl;
 import Objects.Bullet;
@@ -15,7 +16,7 @@ public class KeyboardInput
 	public static int plusSpot = 10;
 	public static double speed = 0.5;
 	
-	public static void KeyboardScan(GameContainer gc, int delta)
+	public static void KeyboardScan(GameContainer gc, StateBasedGame sbg, int delta)
 	{
 		Input input = gc.getInput();
 		
@@ -39,6 +40,8 @@ public class KeyboardInput
 		{
 			 // maybe add these choice later(in later versions)
 		}
+		
+		// shoot
 		if(input.isKeyPressed(Input.KEY_SPACE))
 		{
 			// play the shooting sound
@@ -47,6 +50,23 @@ public class KeyboardInput
 			
 			// every time the space key is pressed, we create a new bullet and shooting it
 			ShootingControl.addBullet(new Bullet(Play.xcharachter+plusSpot, Play.ycharachter));
+		}
+		// pause
+		if(input.isKeyPressed(Input.KEY_ESCAPE))
+		{
+			// if it's in the game state
+			if(sbg.getCurrentStateID() == 1)
+			{
+				Sounds.stopSound(Sounds.playtimeMusic);
+				sbg.enterState(4); // entering to pause
+			}
+			
+			// if it's in the pause state
+			if(sbg.getCurrentStateID() == 4)
+			{
+				Sounds.playSound(Sounds.playtimeMusic);
+				sbg.enterState(1); // enter to the game state
+			}
 		}
 	}
 }

@@ -34,7 +34,6 @@ public class Play extends BasicGameState
 		g.drawImage(Images.character, xcharachter, ycharachter, null);
 		
 		// drawing the enemies
-		EnemyControl.beginLevel(g);
 		EnemyControl.render(g, sbg);
 		
 		// drawing the bullets
@@ -43,13 +42,14 @@ public class Play extends BasicGameState
 		
 		// draw the score
 		g.setColor(Color.white);
-		g.drawString("Score: " + score, Game.width-100, 20);
-		g.drawString("Life: " + life, Game.width-100, 40);
+		g.drawString("Life: " + life, Game.width-100, 20);
+		g.drawString("Level: " + level, Game.width-100, 40);
+		g.drawString("Score: " + score, Game.width-100, 60);
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{
-		KeyboardInput.KeyboardScan(gc, delta);
+		KeyboardInput.KeyboardScan(gc, sbg, delta);
 	}
 	
 	public static void resetAll()

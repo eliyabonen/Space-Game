@@ -5,7 +5,7 @@ import org.newdawn.slick.*;
 public class Bullet
 {
 	private float bulletX, bulletY;
-	private double speed = 2.0;
+	private double speed = 3.0;
 	
 	public Bullet(float x, float y)
 	{
