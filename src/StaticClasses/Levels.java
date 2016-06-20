@@ -28,6 +28,8 @@ public class Levels
 			Level1();
 		if(Play.level == 2)
 			Level2();
+		if(Play.level == 3)
+			Level3();
 	}
 	
 	public static void Level1()
@@ -45,9 +47,36 @@ public class Levels
 	
 	public static void Level2()
 	{
-		// continue the song on the start of level 2
+		// continue the song on the start of the level
 		Sounds.playSound(Sounds.playtimeMusic);
 		
-		EnemyControl.createPackOfEnemies(3, 3, 500, -200);
+		EnemyControl.createPackOfEnemies(4, 4, 100, -200);
+		EnemyControl.createPackOfEnemies(4, 3, 600, -200);
+		EnemyControl.createPackOfEnemies(3, 3, 400, -300);
+		EnemyControl.createPackOfEnemies(5, 5, 100, -450);
+		EnemyControl.createPackOfEnemies(5, 5, 500, -600);
+		EnemyControl.createPackOfEnemies(7, 7, 100, -980);
+		EnemyControl.createPackOfEnemies(4, 4, 650, -1250);
+		EnemyControl.createPackOfEnemies(8, 8, 400, -1550);
+		EnemyControl.createPackOfEnemies(4, 13, 220, -2100);
+	}
+	
+	public static void Level3()
+	{
+		// continue the song on the start of the level
+		Sounds.playSound(Sounds.playtimeMusic);
+		
+		EnemyControl.createPackOfEnemies(5, 5, 200, -200);
+		EnemyControl.createPackOfEnemies(5, 5, 500, -200);
+		EnemyControl.createPackOfEnemies(6, 6, 100, -450);
+		EnemyControl.createPackOfEnemies(2, 2, 700, -500);
+		EnemyControl.createPackOfEnemies(7, 7, 100, -760);
+		EnemyControl.createPackOfEnemies(5, 5, 300, -900);
+		EnemyControl.createPackOfEnemies(3, 3, 600, -900);
+		EnemyControl.createPackOfEnemies(8, 8, 200, -1250);
+		EnemyControl.createPackOfEnemies(5, 5, 200, -1550);
+		EnemyControl.createPackOfEnemies(5, 5, 600, -1550);
+		EnemyControl.createPackOfEnemies(4, 4, 200, -1750);
+		EnemyControl.createPackOfEnemies(4, 13, 200, -2100);
 	}
 }

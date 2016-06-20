@@ -1,8 +1,9 @@
 Version 1.0:
-First release of the game
+First release of the game - 20.6.2016
 
-TO DO:
 Version 2.0:
+add database & personal stats to the game
 add the option the move up and down
 add the option to play with two players
 add more leves
+

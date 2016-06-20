@@ -12,6 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import InputPackages.KeyboardInput;
 import InputPackages.MouseInput;
+import StaticClasses.Images;
 
 public class Pause extends BasicGameState
 {
@@ -33,11 +34,14 @@ public class Pause extends BasicGameState
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		item.drawString(340, 200, "Resume", resumeColor);
-		item.drawString(280, 270, "Main Menu", mainmenuColor);
-		item.drawString(300, 520, "Quit", quitColor);
+		g.drawImage(Images.background, 0, 0, null);
 		
-		//g.drawRect(340, 310, 160, 35);
+		item.drawString(380, 200, "Resume", resumeColor);
+		//g.drawRect(380, 200, 110, 30);
+		item.drawString(350, 260, "Main Menu", mainmenuColor);
+		//g.drawRect(350, 260, 170, 30);
+		item.drawString(385, 520, "Quit", quitColor);
+		//g.drawRect(385, 520, 80, 30);
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException

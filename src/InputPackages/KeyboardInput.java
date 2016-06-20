@@ -64,7 +64,8 @@ public class KeyboardInput
 			// if it's in the pause state
 			if(sbg.getCurrentStateID() == 4)
 			{
-				Sounds.playSound(Sounds.playtimeMusic);
+				if(Sounds.inTheMiddleOfLevelUp == false && Play.winner == false)
+					Sounds.playSound(Sounds.playtimeMusic);
 				sbg.enterState(1); // enter to the game state
 			}
 		}

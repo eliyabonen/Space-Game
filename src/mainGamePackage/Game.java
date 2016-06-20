@@ -1,5 +1,9 @@
 package mainGamePackage;
 
+import java.awt.Toolkit;
+
+import javax.swing.JOptionPane;
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
@@ -36,12 +40,23 @@ public class Game extends StateBasedGame
 	{
 		AppGameContainer appgc;
 		
+		
 		try {
 			appgc = new AppGameContainer(new Game(gameName));
+			appgc.setShowFPS(true);
 			appgc.setDisplayMode(width, height, false);
-			//appgc.setShowFPS(false);
+			appgc.setAlwaysRender(true);
+			appgc.setUpdateOnlyWhenVisible(false);
+			String[] Icons = { "res//spaceShipIcon16.png", "res//spaceShipIcon32.png" };
+			appgc.setIcons(Icons);
 			appgc.start();
 		} catch (SlickException e) {
+			JOptionPane.showMessageDialog(null, "There are some images missing", "ERROR", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+			e.printStackTrace();
+		} catch (RuntimeException e) {
+			JOptionPane.showMessageDialog(null, "There are some images missing", "ERROR", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 			e.printStackTrace();
 		}
 	}

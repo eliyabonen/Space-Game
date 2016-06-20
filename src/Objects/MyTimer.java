@@ -3,7 +3,9 @@ package Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import mainGamePackage.Play;
 import StaticClasses.Levels;
+import StaticClasses.Sounds;
 
 public class MyTimer
 {
@@ -18,6 +20,13 @@ public class MyTimer
 	
 	public void startTimer()
 	{
+		if(Play.level == 4)
+			Play.winner = true;
+		else
+			Play.newLevel = true;
+		
+		Sounds.inTheMiddleOfLevelUp = true;
+		
 		timer.scheduleAtFixedRate(
 		new TimerTask()
 		{
@@ -29,6 +38,8 @@ public class MyTimer
 				  // if finished the levelup song, then begin the new level
 				  if(seconds == 0)
 				  {
+					  Play.newLevel = false;
+					  Sounds.inTheMiddleOfLevelUp = false;
 					  Levels.beginLevels();
 					  timer.cancel();
 				  }

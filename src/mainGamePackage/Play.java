@@ -1,5 +1,7 @@
 package mainGamePackage;
 
+import java.awt.Font;
+
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
@@ -13,6 +15,8 @@ public class Play extends BasicGameState
 {
 	public static float xcharachter = 430, ycharachter = 500;
 	public static int level = 1, score = 0, life = 3;
+	public static boolean newLevel = false, winner = false;
+	private TrueTypeFont title;
 	
 	public Play()
 	{
@@ -21,6 +25,8 @@ public class Play extends BasicGameState
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
+		Font titleFont = new Font(Font.SERIF, Font.ITALIC + Font.BOLD, 65);
+		title = new TrueTypeFont(titleFont, true);
 	}
 	
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
@@ -29,6 +35,11 @@ public class Play extends BasicGameState
 		g.drawImage(Images.background, 0, 0, null);
 		g.setColor(Color.white);
 		
+		if(newLevel == true)
+			title.drawString(310, 200, "LEVEL " + level, Color.white);
+		if(winner == true)
+			title.drawString(310, 200, "WINNER!", Color.white);
+			
 		// drawing the character
 		//g.drawRect(xcharachter, ycharachter, 45, 45);
 		g.drawImage(Images.character, xcharachter, ycharachter, null);
@@ -60,6 +71,7 @@ public class Play extends BasicGameState
 		level = 1;
 		xcharachter = 430;
 		ycharachter = 500;
+		winner = false;
 		
 		// clear the enemies and bullets off the screen
 		EnemyControl.sratedLevel = false;

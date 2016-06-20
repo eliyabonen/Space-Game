@@ -6,10 +6,8 @@ import java.awt.Rectangle;
 import mainGamePackage.Play;
 
 import org.newdawn.slick.*;
-import org.newdawn.slick.geom.Shape;
 
 import Objects.Bullet;
-import StaticClasses.Levels;
 
 public class ShootingControl
 {

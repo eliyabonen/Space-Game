@@ -2,12 +2,14 @@ package StaticClasses;
 
 import java.io.*;
 
+import javax.swing.JOptionPane;
+
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
 public class Sounds
 {
-	public static boolean musicOn = false;
+	public static boolean musicOn = true, inTheMiddleOfLevelUp = false;
 	public static AudioStream playtimeMusic, gameOver, shotEffect, levelUPEffect;
 	public static int playtimeMusicID = 1, gameOverID = 2, shotEffectID = 3, levelup = 4;
 	
@@ -19,10 +21,12 @@ public class Sounds
 			shotEffect = new AudioStream(new FileInputStream("sounds//shotEffect.wav"));
 			levelUPEffect = new AudioStream(new FileInputStream("sounds//levelup.wav"));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "There are some sound files missing", "ERROR", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "There are a problem with the sound", "ERROR", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 			e.printStackTrace();
 		}
 	}
@@ -54,11 +58,13 @@ public class Sounds
 	
 	public static void playSound(AudioStream audioStream)
 	{
-		AudioPlayer.player.start(audioStream);
+		if(musicOn == true || audioStream == shotEffect)
+			AudioPlayer.player.start(audioStream);
 	}
 	
 	public static void stopSound(AudioStream audioStream)
 	{
-		AudioPlayer.player.stop(audioStream);
+		if(musicOn == true || audioStream == shotEffect)
+			AudioPlayer.player.stop(audioStream);
 	}
 }

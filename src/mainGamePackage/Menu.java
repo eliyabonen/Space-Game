@@ -46,6 +46,7 @@ public class Menu extends BasicGameState
 		//g.drawRect(375, 180, 70, 30);
 		
 		item.drawString(290, 250, "MUSIC STATUS: " + (Sounds.musicOn ? "ON" : "OFF"), mColor);
+		//g.drawRect(290, 250, 255, 30);
 		
 		
 		item.drawString(350, 320, "Credits", tColor);
